@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>关键风险指标仪表盘</title>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<div class="homeTop"></div>
+<div id="tab">
+    <ul class="tab_menu">
+        <li class="selected">关键风险指标总览</li>
+        <li>风险偏好与传导</li>
+    </ul>
+    <div class="tab_box">
+        <div class="index_layout">
+            <div id="index_pie" dataIndex="0"></div>
+            <div id="index_bar" dataIndex="1"></div>
+            <div class="index_perspective">
+                <div id="index_button" class="index_button">
+                    <input type="button" value="全 部" class="buttonDefault"/>
+                    <input type="button" value="红色预警"/>
+                    <input type="button" value="黄色预警"/>
+                    <input type="button" value="安全区域"/>
+                    <input type="button" value="观察性指标"/>
+                    <input type="button" value="尚未呈报"/>
+                </div>
+                <div style="display: none; right: 0;" id="index_button2" class="index_button">
+                    <input type="button" value="全 部" class="buttonDefault"/>
+                    <input type="button" value="红色预警"/>
+                    <input type="button" value="黄色预警"/>
+                    <input type="button" value="安全区域"/>
+                    <input type="button" value="观察性指标"/>
+                    <input type="button" value="尚未呈报"/>
+                </div>
+                <div class="indexThead">
+                    <table id="indexThead" style="width: 100%;">
+                        <thead></thead>
+                    </table>
+                </div>
+                <div class="index_table">
+                    <table id="index_table" mark="0" cellspacing="0" style="border-collapse:collapse;width: 100%;">
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="hide">
+            <div class="favor_layout">
+                <div id="favor_funnel"></div>
+                <div class="favor_right">
+                    <!--风险偏好-->
+                    <div class="favor_field">
+                        <h2>风险偏好陈述</h2>
+                        <div id="favor_text" class="favor_text"></div>
+                    </div>
+                    <!--风险容忍度-->
+                    <div style="display: none" class="favor_tolerance">
+                        <div class="indexThead" style="margin-top:0px;">
+                            <table id="toleranceThead" style="width: 100%;">
+                                <thead></thead>
+                            </table>
+                        </div>
+                        <div class="favor_table">
+                            <table id="tolerance_table" cellspacing="0" style="border-collapse:collapse; ">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--风险限额-->
+                    <div style="display: none" class="favor_quota">
+                        <div id="favor_quota" class="favorBar"></div>
+                        <div class="index_perspective">
+                            <div id="quota_button" class="index_button">
+                                <input type="button" value="全 部" class="buttonDefault"/>
+                                <input type="button" value="红色预警"/>
+                                <input type="button" value="黄色预警"/>
+                                <input type="button" value="安全区域"/>
+                                <input type="button" value="观察性指标"/>
+                                <input type="button" value="尚未呈报"/>
+                            </div>
+                            <div class="indexThead">
+                                <table id="quotaThead" style="width: 100%;">
+                                    <thead></thead>
+                                </table>
+                            </div>
+                            <div class="index_table quota_table">
+                                <table id="quota_table" cellspacing="0" style="border-collapse:collapse; ">
+                                    <thead></thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--指令性指标-->
+                    <div style="display: none" class="favor_instruction">
+                        <div id="favor_instruction" class="favorBar"></div>
+                        <div class="index_perspective">
+                            <div id="instruction_button" class="index_button">
+                                <input type="button" value="全 部" class="buttonDefault"/>
+                                <input type="button" value="红色预警"/>
+                                <input type="button" value="黄色预警"/>
+                                <input type="button" value="安全区域"/>
+                                <input type="button" value="观察性指标"/>
+                                <input type="button" value="尚未呈报"/>
+                            </div>
+                            <div class="indexThead">
+                                <table id="instructionThead" style="width: 100%;">
+                                    <thead></thead>
+                                </table>
+                            </div>
+                            <div class="index_table quota_table">
+                                <table id="instruction_table" cellspacing="0" style="border-collapse:collapse; ">
+                                    <thead></thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--观察性指标-->
+                    <div style="display: none" class="favor_watch">
+                        <div id="favor_watch" class="favorBar"></div>
+                        <div class="index_perspective">
+                            <div id="watch_button" class="index_button">
+                                <input type="button" value="全 部" class="buttonDefault"/>
+                                <input type="button" value="红色预警"/>
+                                <input type="button" value="黄色预警"/>
+                                <input type="button" value="安全区域"/>
+                                <input type="button" value="观察性指标"/>
+                                <input type="button" value="尚未呈报"/>
+                            </div>
+                            <div class="indexThead">
+                                <table id="watchThead" style="width: 100%;">
+                                    <thead></thead>
+                                </table>
+                            </div>
+                            <div class="index_table quota_table">
+                                <table id="watch_table" cellspacing="0" style="border-collapse:collapse; ">
+                                    <thead></thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</html>

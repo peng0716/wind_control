@@ -1,0 +1,238 @@
+html, body, div, ul, li, table,tr,th,td,h2,p,span {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑", Helvetica, sans-serif;
+    font-size: 12px;
+    -webkit-user-select: none;
+}
+html,body{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+tr{
+    line-height: 30px;
+}
+.myRed{
+    background: #FA0000;
+}
+.myYellow{
+    background: #E5E500;
+}
+.myGreen{
+    background: #00DB00;
+}
+.myBlue{
+    background: #024DF7;
+}
+.myGray{
+    background: #999;
+}
+
+
+
+.homeTop {
+    width: 100%;
+    height: 60px;
+    background: #053162;
+}
+
+/*选项卡*/
+#tab {
+    position: relative;
+    top:-40px;
+}
+
+#tab .tab_menu {
+    position: absolute;
+    margin-left:50px;
+    float: left;
+    z-index: 1;
+}
+
+#tab .tab_menu li {
+    margin: 0 10px;
+    padding:0 30px;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 0px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    background: #ccc;
+    border-radius:5px 5px 0 0;
+}
+#tab .tab_menu li:hover{
+    background-color: #fff;
+    color:#084A94;
+}
+
+#tab .tab_box {
+    position: relative;
+    clear: both;
+    top: 40px;
+}
+
+#tab .tab_menu .selected {
+    color:#084A94;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.hide {
+    width: 100%;
+    display: none;
+}
+
+/*指标页面*/
+.index_layout{
+    position: relative;
+    padding:1%;
+    overflow: hidden;
+}
+#index_pie,#index_bar{
+    display: inline-block;
+    width: 49%;
+    height: 400px;
+    border:1px solid #ccc;
+}
+#index_bar{
+    margin-left: 1%;
+}
+/*表单*/
+.index_perspective{
+    position: relative;
+    padding-top:10px;
+}
+.index_button{
+    position: absolute;
+}
+.index_button > input{
+    padding: 8px 10px;
+    margin-right: 10px;
+    background: #ddd;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.index_button > input:hover{
+    color:#fff;
+    background: #053162;
+}
+.buttonDefault{
+    color: #fff;
+    background: #053162!important;
+}
+.indexThead{
+    margin-top:40px;
+    width: 100%;
+}
+.index_table{
+    margin:-2px 0 20px 0;
+    height: 300px;
+    overflow-y: scroll;
+}
+.index_table > table{
+    width: 100%;
+}
+.index_table td,.index_table th{
+    padding:0 10px;
+    height: 30px;
+    border: 1px solid #ccc;
+}
+.index_header{
+    background: #053162;
+}
+.index_header > th{
+    color:#fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+/*隔行变色*/
+.tr_even{
+    background: #eee;
+}
+/*.index_form{
+    display: none;
+}*/
+.index_form:hover{
+    background: #A1E5FF;
+}
+
+/*风向偏好与传导*/
+.favor_layout{
+    padding: 1%;
+    width:98%;
+}
+#favor_funnel{
+    float: left;
+    width: 48%;
+    height: 500px;
+    border:1px solid #ccc;
+}
+.favor_right{
+    float: left;
+    margin-left: 15px;
+    width:50%;
+}
+
+/*风险偏好*/
+.favor_field{
+    padding:0 10px;
+}
+.favor_field > h2{
+    font-size: 22px;
+    text-align: center;
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+}
+.favor_text{
+    padding:10px;
+}
+.favor_textP{
+    line-height: 30px;
+    font-size: 14px;
+    color: #666;
+    text-indent: 2em;
+}
+
+/*风险容忍度*/
+.favor_table >table{
+    width: 100%;
+}
+.favor_table td,.favor_table th{
+    padding:0 10px;
+    border: 1px solid #ccc;
+}
+
+/*风险限额*/
+.favorBar{
+    width: 100%;
+    height: 250px;
+    border: 1px solid #ccc;
+}
+
+.favor_table{
+    margin-top:-2px;
+    height: 500px;
+    overflow-y: scroll;
+}
+.quota_table{
+    height: 200px;
+    overflow-y: scroll;
+}
+
+
+
