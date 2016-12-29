@@ -1,26 +1,31 @@
 $(function(){
     var index_table = document.getElementById('index_table');
-    var indexThead = document.getElementById('indexThead');
+    //var indexThead = document.getElementById('indexThead');
+    var index_Thead = index_table.tHead;
     var index_tbody = index_table.tBodies[0];
 
     /*风险容忍度页面表单*/
     var tolerance_table = document.getElementById('tolerance_table');
-    var toleranceThead = document.getElementById('toleranceThead');
+    //var toleranceThead = document.getElementById('toleranceThead');
+    var tolerance_Thead = tolerance_table.tHead;
     var tolerance_tbody = tolerance_table.tBodies[0];
 
     /*风险限额表单*/
     var quota_table = document.getElementById('quota_table');
-    var quotaThead = document.getElementById('quotaThead');
+    //var quotaThead = document.getElementById('quotaThead');
+    var quota_Thead = quota_table.tHead;
     var quota_tbody = quota_table.tBodies[0];
 
     /*指令性指标*/
     var instruction_table = document.getElementById('instruction_table');
-    var instructionThead = document.getElementById('instructionThead');
+    //var instructionThead = document.getElementById('instructionThead');
+    var instruction_Thead = instruction_table.tHead;
     var instruction_tbody = instruction_table.tBodies[0];
 
     /*观察性指标*/
     var watch_table = document.getElementById('watch_table');
-    var watchThead = document.getElementById('watchThead');
+    //var watchThead = document.getElementById('watchThead');
+    var watch_Thead = watch_table.tHead;
     var watch_tbody = watch_table.tBodies[0];
 
     //表头加载方法
@@ -31,31 +36,24 @@ $(function(){
         var topCurItem = headerData;
         for(var key in topCurItem){
             var topTh = document.createElement('th');
-            /*if(key == 'name'){
-                topTh.style.width = '39.5%'
-            }else if(key == 'nameReport'){
-                topTh.style.width = '19.8%'
-            }else if(key == 'nameValue'){
-                topTh.style.width = '19.5%'
-            }*/
             topTh.innerHTML = topCurItem[key];
             topTr.appendChild(topTh);
         }
         topFrg.appendChild(topTr);
         if($('.favor_tolerance').css('display') == 'block'){   //风险容忍度
-            toleranceThead.appendChild(topFrg);
+            tolerance_Thead.appendChild(topFrg);
         }else if($('.favor_quota').css('display') == 'block'){ //风险限额
-            quotaThead.appendChild(topFrg);
+            quota_Thead.appendChild(topFrg);
         }else if($('.favor_instruction').css('display') == 'block'){ //指令性指标
-            instructionThead.appendChild(topFrg);
+            instruction_Thead.appendChild(topFrg);
         }else if($('.favor_watch').css('display') == 'block'){ //观察性指标
-            watchThead.appendChild(topFrg);
+            watch_Thead.appendChild(topFrg);
         }else{
-            indexThead.appendChild(topFrg);
+            index_Thead.appendChild(topFrg);
         }
     }
-    //表单加载方法
-    function formData(fromData){
+    //表单加载方法 数据源:fromData 当前是谁的数据:name = 0 饼图 1 柱状图.....
+    function formData(fromData,name){
         var listFrg = document.createDocumentFragment();
         var listCurItem = fromData.sort(function(a,b){
             return a.colour - b.colour;
@@ -66,14 +64,14 @@ $(function(){
             var item = listCurItem[i];
             for(var keys in item){
                 var listTd = document.createElement('td');
-                if(keys == 'name'){
-                    listTd.style.width = '40%'
-                }else if(keys == 'tate'){
-                    listTd.style.width = '20%'
-                }else if(keys == 'indexValue'){
-                    listTd.style.width = '20%'
+                if(keys == 'name' && name !== undefined){
+                    var listA = document.createElement('a');
+                    listA.innerHTML = item[keys];
+                    listA.target = '_blank';
+                    listTd.appendChild(listA);
+                }else{
+                    listTd.innerHTML = item[keys];
                 }
-                listTd.innerHTML = item[keys];
                 listTr.appendChild(listTd);
             }
             var a = listTr.firstChild;
@@ -91,6 +89,13 @@ $(function(){
                 b.className = 'myGray';
             }
             listTr.firstChild.style.display = 'none';
+            if(name !== undefined){
+                var indexName = listTr.cells[1].innerText;
+                indexName = encodeURIComponent(indexName);
+                listA.href = 'page.html?0='+ indexName;
+                //var dataIndex = i;
+                //listA.href = 'page.html?0='+ name +'&1='+ dataIndex +'&2='+ indexName;
+            }
             listFrg.appendChild(listTr);
         }
         if($('.favor_tolerance').css('display') == 'block'){
@@ -221,7 +226,8 @@ $(function(){
 
             /*表单*/
             var newAryPie = res.pieValue;
-            formData(newAryPie);
+            var name = 0;  //判断数据是谁的
+            formData(newAryPie,name);
 
             /*表单宽度问题*/
             var currentId = $('#tolerance_table > tbody').find('tr').first();
@@ -348,8 +354,9 @@ $(function(){
                         var newAryBar = parameter[p];
                         break;
                     }
-                }
-                formData(newAryBar);
+                };
+                var name = 1;
+                formData(newAryBar,name);
             }
             initBar();
             /*changeBg();*/
@@ -558,7 +565,8 @@ $(function(){
 
                             /*表单初始化*/
                             var initquota = favorQuota.quotaValue[0].marketRisk;
-                            formData(initquota);
+                            var name = 2;
+                            formData(initquota,name);
                         }
                         initQuota();
 
@@ -682,7 +690,8 @@ $(function(){
 
                             /*表单初始化*/
                             var initinstruction = favorInstruction.instructionValue[0].marketRisk;
-                            formData(initinstruction);
+                            var name = 3;
+                            formData(initinstruction,name);
                         }
                         initInstruction();
 
@@ -806,7 +815,8 @@ $(function(){
 
                             /*表单初始化*/
                             var initwatch = favorWatch.watchValue[0].marketRisk;
-                            formData(initwatch);
+                            var name = 4;
+                            formData(initwatch,name);
                         }
                         initWatch();
 
@@ -840,5 +850,6 @@ $(function(){
             })
         }
     });
+
 
 })

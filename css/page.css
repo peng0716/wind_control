@@ -1,0 +1,160 @@
+html, body, div, ul, li, table,thead,tbody,tr,th,td,h2,h3,p,span {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑", Helvetica, sans-serif;
+    font-size: 12px;
+    -webkit-user-select: none;
+}
+html,body{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+tr{
+    line-height: 32px;
+}
+
+
+
+.pageTop {
+    width: 100%;
+    height: 60px;
+    background: #053162;
+}
+
+/*选项卡*/
+#page_tab {
+    position: relative;
+    top:-40px;
+}
+
+#page_tab .page_menu {
+    position: absolute;
+    margin-left:50px;
+    float: left;
+    z-index: 1;
+}
+
+#page_tab .page_menu li {
+    margin: 0 10px;
+    padding:0 30px;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 0px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    background: #ccc;
+    border-radius:5px 5px 0 0;
+}
+#page_tab .page_menu li:hover{
+    background-color: #fff;
+    color:#084A94;
+}
+
+#page_tab .page_box {
+    position: relative;
+    clear: both;
+    top: 40px;
+}
+
+#page_tab .page_menu .page_selected {
+    color:#084A94;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.hide {
+    width: 100%;
+    display: none;
+}
+
+/*折线图*/
+#pageLine{
+    width: 100%;
+    height: 500px;
+}
+.page_table{
+    margin:0 12% 0 5%;
+}
+.page_header{
+    background: #053162;
+}
+.page_header th{
+    color:#fff
+}
+.page_header th,.page_form td{
+    text-align: center;
+    border:1px solid #ccc;
+}
+
+/*指标下钻分析*/
+.downLayout{
+    padding:20px 20px 0;
+    overflow: hidden;
+}
+.downLayout >h3{
+    padding-left: 10px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: 100;
+    background: #B8EAFA;
+}
+.left_scrollBar{
+    height: 200px;
+    overflow: hidden;
+    overflow-x: auto;
+}
+.left_scrollBar>div{
+    position: relative;
+    height: 200px;
+}
+.down_thead{
+    position: absolute;
+    z-index: 1;
+}
+.down_thead > table{
+    background: #D8F3FC;
+}
+.down_thead tr{
+    height: 32px;
+}
+.downForm{
+    position: absolute;
+    top: 0;
+    height: 184px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.downForm >table >thead{
+    background: #D8F3FC;
+}
+.downForm >table > tbody >tr:nth-child(odd){
+    background: #f8f8f8;
+}
+.downForm >table > tbody >tr:nth-child(even){
+    background: #eee;
+}
+.form_W th,.form_W td{
+    min-width:200px;
+    max-width: 400px;
+    text-align: center;
+}
+.form_W th:nth-child(2),.form_W td:nth-child(2){
+    min-width:400px;
+}
+.downMargin{
+    margin-bottom: 20px;
+}

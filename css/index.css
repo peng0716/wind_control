@@ -1,7 +1,7 @@
 html, body, div, ul, li, table,tr,th,td,h2,p,span {
     margin: 0;
     padding: 0;
-    font-family: "微软雅黑", Helvetica, sans-serif;
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
     font-size: 12px;
     -webkit-user-select: none;
 }
@@ -140,7 +140,7 @@ tr{
     width: 100%;
 }
 .index_table{
-    margin:-2px 0 20px 0;
+    margin:45px 0 20px 0;
     height: 300px;
     overflow-y: scroll;
 }
@@ -169,6 +169,9 @@ tr{
 }*/
 .index_form:hover{
     background: #A1E5FF;
+}
+.index_form:hover a{
+    color:red;
 }
 
 /*风向偏好与传导*/
@@ -233,6 +236,4 @@ tr{
     height: 200px;
     overflow-y: scroll;
 }
-
-
 
